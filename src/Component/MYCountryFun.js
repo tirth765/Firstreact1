@@ -27,6 +27,7 @@
 
 
 import React , { useState } from 'react'
+import MyCityFun from './MyCityFun';
 
 export default function MYCountryFun() {
 
@@ -47,12 +48,15 @@ export default function MYCountryFun() {
   return (
     <>
     <h1>Function Base Component</h1>
-    <div>MYCountry {country}</div>
+    <div>MYCountryFun</div>
+    <h4>MYCountry : {country}</h4>
 
-    <h4>Population {Population} </h4>
+    <h4>Population : {Population} </h4>
 
     <button onClick={handleCountry}>Change Country</button>
+      
     
+    <MyCityFun c = {country}  p = {Population}/>
 
     </>
   )
