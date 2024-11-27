@@ -20,8 +20,18 @@ class Timer extends Component {
     componentDidMount = () => {
         setInterval(this.tick, 1000)
     }
+
+    //4.It is use to do some work when state or props value changed.
+    componentDidUpdate = () => {
+        console.log('component updated')
+    }
+
+    //5. It is used to realese resources when we move to another component.
+    componentWillUnmount = () => {
+        clearInterval(this.tick)
+    }
    
-    //2.Display Component.
+    //2.Display Component. It is called after rendering.
     render() {
         return (
             <div>
