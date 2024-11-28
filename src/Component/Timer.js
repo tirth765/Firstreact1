@@ -34,9 +34,9 @@ class Timer extends Component {
     //2.Display Component. It is called after rendering.
     render() {
         return (
-            <div>
+            <h1>
                 {this.state.time.toLocaleTimeString()}
-            </div>
+            </h1>
         );
     }
 }
