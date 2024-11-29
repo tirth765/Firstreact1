@@ -8,7 +8,8 @@ import Colour from "./Component/Colour_Change";
 import Courses from "./Component/Courses";
 import Timer from "./Component/Timer";
 import TimerFun from "./Component/TimerFun";
-import Loader from "./Component/Loader";
+import Product from "./Component/Product";
+import Loaders from "./Component/Loaders";
 
 function App() {
   return (
@@ -28,8 +29,9 @@ function App() {
     {/* <Timer/>
     <TimerFun/> */}
 
-     <Loader/>
+     {/* <Loaders /> */}
 
+      <Product />
     </>
   );
 }
