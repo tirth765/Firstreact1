@@ -4,6 +4,8 @@ export default function Product() {
   const [Loader, setLoader] = useState(true);
   const [Product, setProduct] = useState([]);
   const [Search, setSearch] = useState('');
+  const [sort , setsort] = useState("");
+
 
   const getdata = async() => {
     const response = await fetch("https://fakestoreapi.com/products")
@@ -12,11 +14,11 @@ export default function Product() {
   }
 
   useEffect(() => {
-    setTimeout(() => {
-      setLoader(false)
-    },100000)
+  //   setTimeout(() => {
+  //     setLoader(false)
+  //   },100000)
 
-    // setLoader(false)
+    setLoader(false)
     getdata();
 
   }, []);
@@ -30,6 +32,17 @@ export default function Product() {
         v.rating.rate.toString().includes(Search)
     ))
     console.log(fData);
+
+    if(sort === "a_z"){
+      return fData.sort((a,b) => a.title.localeCompare(b.title) )
+    }else if(sort === "z_a"){
+      return fData.sort((a,b) => b.title.localeCompare(a.title) )
+    }else if(sort === "l_h"){
+      return fData.sort((a,b) => a.price - b.price)
+    }else if(sort === "h_l"){
+      return fData.sort((a,b) => b.price - a.price)
+    }
+
     return fData;
   }
 
@@ -69,6 +82,15 @@ export default function Product() {
     
     <input type="text" placeholder="Search..." onChange={(e) => setSearch(e.target.value)} className="searchEdit" id="myInput"/>
     </div>
+
+    <select id="selection" onChange={(e) => setsort(e.target.value)}>
+      <option value="0">---Select---</option>
+      <option value="l_h">Lower to High</option>
+      <option value="h_l">High to Lower</option>
+      <option value="a_z">a to z</option>
+      <option value="z_a">z to a</option>
+    </select>
+
 
     <div className="dataedit">
         {

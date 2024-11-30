@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Fees from './Fees';
 
+
 export default function Courses() {
     const [courses, setCourses] = useState([
         {

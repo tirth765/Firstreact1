@@ -42,7 +42,12 @@
 /* ############################################################################ */
 
 
+
+
 /* Loader */
+
+
+
 
 * {
   margin: 0;
@@ -115,6 +120,8 @@ body {
 
 
 /* Product */
+
+
 
 
 * {
@@ -271,7 +278,6 @@ body {
 	}
 }
 
-
 .dataedit{
   display: flex;
   flex-wrap: wrap;
@@ -299,3 +305,17 @@ body {
 
 
 
+
+
+/* QuizExam */
+
+
+
+
+.handlenon {
+	
+	box-sizing: border-box;
+	margin: 10px;
+	border-radius: 10px;
+	padding: 10px 25px;
+}

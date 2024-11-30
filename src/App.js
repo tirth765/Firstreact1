@@ -10,6 +10,7 @@ import Timer from "./Component/Timer";
 import TimerFun from "./Component/TimerFun";
 import Product from "./Component/Product";
 import Loaders from "./Component/Loaders";
+import QuizExam from "./Component/QuizExam";
 
 function App() {
   return (
@@ -31,7 +32,10 @@ function App() {
 
      {/* <Loaders /> */}
 
-      <Product />
+      {/* <Product /> */}
+
+      <QuizExam/>
+      
     </>
   );
 }
