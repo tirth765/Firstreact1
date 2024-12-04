@@ -32,9 +32,9 @@ function App() {
 
      {/* <Loaders /> */}
 
-      {/* <Product /> */}
+      <Product />
 
-      <QuizExam/>
+      {/* <QuizExam/> */}
       
     </>
   );
