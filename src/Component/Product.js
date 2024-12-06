@@ -6,7 +6,7 @@ export default function Product() {
   const [Search, setSearch] = useState('');
   const [sort, setsort] = useState('');
   const [UniqueData, setUniqueData] = useState([]);
-  const [Cat, setCat] = useState('')
+  const [Cat, setCat] = useState('');
 
   const getdata = async () => {
     const response = await fetch("https://fakestoreapi.com/products")
@@ -24,11 +24,11 @@ export default function Product() {
   }
 
   useEffect(() => {
-      // setTimeout(() => {
-      //   setLoader(false)
-      // },1000)
+      setTimeout(() => {
+        // setLoader(false)
+      },1000)
 
-    setLoader(false)
+    // setLoader(false)
     getdata();
 
   }, []);
@@ -36,7 +36,9 @@ export default function Product() {
   const handleFillter = () => {
     console.log(Search);
 
-    const fData = Product.filter((v, i) => (
+    let fData = []
+
+     fData = Product.filter((v, i) => (
       v.title.toLowerCase().includes(Search.toLowerCase()) ||
       v.price.toString().includes(Search) ||
       v.rating.rate.toString().includes(Search)
@@ -44,16 +46,18 @@ export default function Product() {
     console.log(fData);
 
     if (sort === "a_z") {
-      return fData.sort((a, b) => a.title.localeCompare(b.title))
+      fData = fData.sort((a, b) => a.title.localeCompare(b.title))
     } else if (sort === "z_a") {
-      return fData.sort((a, b) => b.title.localeCompare(a.title))
+      fData = fData.sort((a, b) => b.title.localeCompare(a.title))
     } else if (sort === "l_h") {
-      return fData.sort((a, b) => a.price - b.price)
+      fData = fData.sort((a, b) => a.price - b.price)
     } else if (sort === "h_l") {
-      return fData.sort((a, b) => b.price - a.price)
+      fData = fData.sort((a, b) => b.price - a.price)
     }
 
-    
+  if(Cat) {
+    return fData.filter((v) => v.category === Cat)
+  }
 
     return fData;
   }
@@ -61,6 +65,8 @@ export default function Product() {
   const FinalData = handleFillter();
 
   console.log(Cat);
+  console.log(FinalData);
+  
   
 
   return (
@@ -101,11 +107,11 @@ export default function Product() {
               <option value="a_z">a to z</option>
               <option value="z_a">z to a</option>
             </select>
-
+            <button style={Cat === '' ? {backgroundColor : "black", color: 'white'} : null}  className="handleUniqData" onClick={() => setCat("")}>all</button>
             {
-
+              
             UniqueData.map((v, i) => (  
-                <button className="handleUniqData" onClick={() => setCat(v)}>{v}</button>
+                <button style={v === Cat ? {backgroundColor : "black", color: 'white'} : null}  className="handleUniqData" onClick={() => setCat(v)}>{v}</button>
               ))
 
             }
